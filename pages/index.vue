@@ -14,6 +14,7 @@
           <v-card-actions>
             <v-spacer />
             <v-btn color="primary" variant="flat" to="/seats">座席管理へ</v-btn>
+            <v-btn color="secondary" variant="flat" to="/salary">年収シミュレーションへ</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
