@@ -34,32 +34,32 @@ const blocks = ref<Block[]>([
   { id: 'printer', label: 'P', x: 22, y: 1, w: 2, h: 2, type: 'area' },
 
   // --- Seats ---
-  { id: 'noda_m', label: '野田M', x: 2, y: 10, w: 7, h: 6, type: 'seat' },
+  { id: 'noda_m', label: 'hoge', x: 2, y: 10, w: 7, h: 6, type: 'seat' },
 
   // Right-up cluster (2 rows x 3 cols)
-  { id: 'asano', label: '浅野', x: 12, y: 12, w: 4, h: 4, type: 'seat' },
-  { id: 'miyase', label: '宮瀬', x: 16, y: 12, w: 4, h: 4, type: 'seat' },
-  { id: 'makino', label: '牧野', x: 20, y: 12, w: 4, h: 4, type: 'seat' },
-  { id: 'ochi', label: '越智', x: 12, y: 16, w: 4, h: 4, type: 'seat' },
-  { id: 'kakuno', label: '角野', x: 16, y: 16, w: 4, h: 4, type: 'seat' },
-  { id: 'tanaka_mgr', label: '田中統括M', x: 20, y: 16, w: 4, h: 4, type: 'seat' },
+  { id: 'asano', label: 'fuga', x: 12, y: 12, w: 4, h: 4, type: 'seat' },
+  { id: 'miyase', label: 'piyo', x: 16, y: 12, w: 4, h: 4, type: 'seat' },
+  { id: 'makino', label: 'foo', x: 20, y: 12, w: 4, h: 4, type: 'seat' },
+  { id: 'ochi', label: 'bar', x: 12, y: 16, w: 4, h: 4, type: 'seat' },
+  { id: 'kakuno', label: 'baz', x: 16, y: 16, w: 4, h: 4, type: 'seat' },
+  { id: 'tanaka_mgr', label: 'qux', x: 20, y: 16, w: 4, h: 4, type: 'seat' },
 
   // Center island around PC棚
-  { id: 'tadano', label: '棚野', x: 10, y: 24, w: 4, h: 5, type: 'seat' },
-  { id: 'kito', label: '木戸', x: 14, y: 28, w: 4, h: 4, type: 'seat' },
-  { id: 'kohara', label: '小原', x: 10, y: 28, w: 4, h: 4, type: 'seat' },
-  { id: 'onodera', label: '小野寺', x: 10, y: 32, w: 4, h: 4, type: 'seat' },
-  { id: 'atochi', label: '跡地', x: 14, y: 32, w: 4, h: 4, type: 'seat' },
-  { id: 'kitou', label: '鬼頭', x: 14, y: 24, w: 4, h: 4, type: 'seat' },
-  { id: 'hayashi', label: '林', x: 18, y: 24, w: 4, h: 4, type: 'seat' },
+  { id: 'tadano', label: 'quux', x: 10, y: 24, w: 4, h: 5, type: 'seat' },
+  { id: 'kito', label: 'corge', x: 14, y: 28, w: 4, h: 4, type: 'seat' },
+  { id: 'kohara', label: 'grault', x: 10, y: 28, w: 4, h: 4, type: 'seat' },
+  { id: 'onodera', label: 'garply', x: 10, y: 32, w: 4, h: 4, type: 'seat' },
+  { id: 'atochi', label: 'waldo', x: 14, y: 32, w: 4, h: 4, type: 'seat' },
+  { id: 'kitou', label: 'fred', x: 14, y: 24, w: 4, h: 4, type: 'seat' },
+  { id: 'hayashi', label: 'plugh', x: 18, y: 24, w: 4, h: 4, type: 'seat' },
 
   // Left bottom stack
-  { id: 'sato', label: '佐藤', x: 2, y: 30, w: 6, h: 6, type: 'seat' },
-  { id: 'suenaga', label: '末長', x: 2, y: 24, w: 6, h: 6, type: 'seat' },
+  { id: 'sato', label: 'xyzzy', x: 2, y: 30, w: 6, h: 6, type: 'seat' },
+  { id: 'suenaga', label: 'thud', x: 2, y: 24, w: 6, h: 6, type: 'seat' },
 
   // Right vertical
-  { id: 'yamamoto', label: '山本', x: 22, y: 26, w: 2, h: 6, type: 'seat' },
-  { id: 'fujiyama', label: '藤山', x: 22, y: 32, w: 2, h: 6, type: 'seat' },
+  { id: 'yamamoto', label: 'hoge2', x: 22, y: 26, w: 2, h: 6, type: 'seat' },
+  { id: 'fujiyama', label: 'fuga2', x: 22, y: 32, w: 2, h: 6, type: 'seat' },
 ])
 
 // Assignments persisted in localStorage
@@ -267,4 +267,3 @@ const router = useRouter()
   .label { font-size: .78rem; }
 }
 </style>
-
