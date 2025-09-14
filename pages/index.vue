@@ -19,6 +19,20 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-row justify="center">
+      <v-col cols="12" md="8" lg="6">
+        <v-card elevation="3">
+          <v-card-title class="text-h6">Parallax デモ</v-card-title>
+          <v-card-text class="d-flex flex-wrap gap-2">
+            <v-btn color="primary" variant="tonal" to="/parallax/basic">1. Background Attachment</v-btn>
+            <v-btn color="primary" variant="tonal" to="/parallax/perspective">2. CSS Perspective</v-btn>
+            <v-btn color="primary" variant="tonal" to="/parallax/layers">3. JS Layers</v-btn>
+            <v-btn color="primary" variant="tonal" to="/parallax/vuetify">4. Vuetify</v-btn>
+            <v-btn color="primary" variant="tonal" to="/parallax/sticky">5. Sticky Scene</v-btn>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
   
 </template>
