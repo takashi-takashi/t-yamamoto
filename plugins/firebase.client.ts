@@ -17,6 +17,15 @@ export default defineNuxtPlugin(() => {
     measurementId: config.firebaseMeasurementId,
   }
 
+  // 安全策: キー未設定時は初期化せずにヌル提供
+  if (!options.apiKey || !options.projectId || !options.appId) {
+    if (process.dev) {
+      // eslint-disable-next-line no-console
+      console.warn('[firebase] Skip init: env keys missing (.env not configured)')
+    }
+    return { provide: { firebase: null } }
+  }
+
   const app = getApps().length ? getApps()[0]! : initializeApp(options)
   const auth = getAuth(app)
   const db = getFirestore(app)
@@ -36,4 +45,3 @@ export default defineNuxtPlugin(() => {
     },
   }
 })
-
