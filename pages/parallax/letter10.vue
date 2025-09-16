@@ -173,9 +173,9 @@ onMounted(() => {
 .c6 { background: linear-gradient(135deg, #fca5a5, #f97316); }
 
 /* three horizontal rails moving at different speeds/directions */
-.r1 { top: 10vh; transform: translate3d(calc(var(--p) * -40%), 0, 0); }
-.r2 { top: 40vh; transform: translate3d(calc(var(--p) * 25%), 0, 0); }
-.r3 { bottom: 6vh; transform: translate3d(calc(var(--p) * -12%), 0, 0); }
+.r1 { top: 10vh; transform: translate3d(calc(var(--p) * 100%), 0, 0); }
+.r2 { top: 40vh; transform: translate3d(calc(var(--p) * 80%), 0, 0); }
+.r3 { bottom: 6vh; transform: translate3d(calc(var(--p) * 60%), 0, 0); }
 
 .center { position: relative; display: grid; place-items: center; height: 100vh; }
 .paper {
