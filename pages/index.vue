@@ -29,6 +29,10 @@
             <v-btn color="primary" variant="tonal" to="/parallax/layers">3. JS Layers</v-btn>
             <v-btn color="primary" variant="tonal" to="/parallax/vuetify">4. Vuetify</v-btn>
             <v-btn color="primary" variant="tonal" to="/parallax/sticky">5. Sticky Scene</v-btn>
+
+            <v-btn color="primary" variant="tonal" to="/parallax/letter6">6. Letter + Strip</v-btn>
+            <v-btn color="primary" variant="tonal" to="/parallax/letter7">7. Letter + Columns</v-btn>
+            <v-btn color="primary" variant="tonal" to="/parallax/letter8">8. Letter + Panorama</v-btn>
           </v-card-text>
         </v-card>
       </v-col>
