@@ -36,6 +36,7 @@
 
             <v-btn color="primary" variant="tonal" to="/parallax/letter9">9. Long Letter + Filmstrips</v-btn>
             <v-btn color="primary" variant="tonal" to="/parallax/letter10">10. Long Journey Letter</v-btn>
+            <v-btn color="primary" variant="tonal" to="/parallax/letter11">11. Letter + Yes/No</v-btn>
           </v-card-text>
         </v-card>
       </v-col>
