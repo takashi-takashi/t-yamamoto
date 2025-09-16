@@ -33,6 +33,20 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-row justify="center" class="mt-6">
+      <v-col cols="12" md="8" lg="6">
+        <v-card elevation="3">
+          <v-card-title class="text-h6">おまけ</v-card-title>
+          <v-card-text>
+            ドラッグ＆ドロップの順序パズルで遊べます。
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn color="success" variant="flat" to="/puzzle">順序パズルへ</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
   
 </template>
