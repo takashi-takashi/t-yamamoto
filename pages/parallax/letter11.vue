@@ -35,7 +35,6 @@ let particles: Array<{
   shape:number;rot:number;vr:number; ay:number; sway:number; phase:number
 }> = []
 let rafId = 0
-let stopAt = 0
 
 function resizeCanvas() {
   const c = canvasRef.value
@@ -120,21 +119,22 @@ function tick() {
     }
     drawParticle(p, ctx)
   }
-  const now = performance.now()
-  if (now < stopAt) {
+  if (running.value) {
     rafId = requestAnimationFrame(tick)
-  } else {
-    running.value = false
   }
 }
 
-function startConfetti(durationMs = 6000) {
+function startConfetti() {
   resizeCanvas()
   initParticles()
   running.value = true
-  stopAt = performance.now() + durationMs
   cancelAnimationFrame(rafId)
   rafId = requestAnimationFrame(tick)
+}
+
+function stopConfetti() {
+  running.value = false
+  cancelAnimationFrame(rafId)
 }
 
 onMounted(() => {
@@ -150,10 +150,11 @@ onBeforeUnmount(() => {
 const displayedAt = ref<string | null>(null)
 function onYes() {
   displayedAt.value = new Date().toLocaleString()
-  startConfetti(6000)
+  startConfetti()
 }
 function onNo() {
   displayedAt.value = null
+  stopConfetti()
 }
 </script>
 
