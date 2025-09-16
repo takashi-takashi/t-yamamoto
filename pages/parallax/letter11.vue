@@ -26,11 +26,14 @@ onMounted(() => {
   })
 })
 
-// Confetti overlay
+// Confetti overlay (petal style)
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const running = ref(false)
 let ctx: CanvasRenderingContext2D | null = null
-let particles: Array<{x:number;y:number;vx:number;vy:number;size:number;color:string;shape:number;rot:number;vr:number}> = []
+let particles: Array<{
+  x:number;y:number;vx:number;vy:number;size:number;color:string;
+  shape:number;rot:number;vr:number; ay:number; sway:number; phase:number
+}> = []
 let rafId = 0
 let stopAt = 0
 
@@ -46,20 +49,23 @@ function resizeCanvas() {
   ctx && ctx.scale(dpr, dpr)
 }
 
-function initParticles(count = 200) {
+function initParticles(count = 220) {
   const W = window.innerWidth
   particles = Array.from({ length: count }, () => {
-    const size = 6 + Math.random() * 10
+    const size = 10 + Math.random() * 16
     return {
       x: Math.random() * W,
       y: -20 - Math.random() * 200,
-      vx: -0.5 + Math.random() * 1,
-      vy: 1 + Math.random() * 2.5,
+      vx: -0.3 + Math.random() * 0.6,
+      vy: 0.8 + Math.random() * 1.8,
       size,
-      color: pick(['#f87171','#fbbf24','#34d399','#60a5fa','#a78bfa','#f472b6']),
-      shape: Math.floor(Math.random() * 3), // 0:rect, 1:circle, 2:triangle
+      color: pick(['#fce7f3','#fbcfe8','#f9a8d4','#f472b6','#fb7185','#fda4af']),
+      shape: Math.floor(Math.random() * 3), // petal variants
       rot: Math.random() * Math.PI,
-      vr: (-0.03 + Math.random() * 0.06)
+      vr: (-0.02 + Math.random() * 0.04),
+      ay: 0.45 + Math.random() * 0.45, // ellipse aspect (height scale)
+      sway: 6 + Math.random() * 16,     // lateral sway amplitude
+      phase: Math.random() * Math.PI * 2
     }
   })
 }
@@ -67,18 +73,29 @@ function initParticles(count = 200) {
 function pick<T>(a: T[]): T { return a[Math.floor(Math.random()*a.length)] }
 
 function drawParticle(p: typeof particles[number], g: CanvasRenderingContext2D) {
+  const s = p.size
   g.save()
   g.translate(p.x, p.y)
   g.rotate(p.rot)
+  // variant-specific slenderness
+  const slender = p.shape === 0 ? p.ay : p.shape === 1 ? Math.max(0.4, p.ay - 0.15) : Math.min(0.9, p.ay + 0.1)
+  g.scale(1, slender)
+
+  // Petal shape (two quadratic curves)
   g.fillStyle = p.color
-  const s = p.size
-  if (p.shape === 0) {
-    g.fillRect(-s/2, -s/2, s, s)
-  } else if (p.shape === 1) {
-    g.beginPath(); g.arc(0,0,s/2,0,Math.PI*2); g.fill()
-  } else {
-    g.beginPath(); g.moveTo(0,-s/1.2); g.lineTo(s/1.2,s/1.2); g.lineTo(-s/1.2,s/1.2); g.closePath(); g.fill()
-  }
+  g.beginPath()
+  g.moveTo(0, -s * 0.6)
+  g.quadraticCurveTo(s * 0.55, 0, 0, s * 0.6)
+  g.quadraticCurveTo(-s * 0.55, 0, 0, -s * 0.6)
+  g.closePath()
+  g.fill()
+
+  // subtle highlight
+  g.globalAlpha = 0.18
+  g.fillStyle = '#ffffff'
+  g.beginPath()
+  g.ellipse(-s * 0.12, -s * 0.15, s * 0.18, s * 0.10, Math.PI / 6, 0, Math.PI * 2)
+  g.fill()
   g.restore()
 }
 
@@ -88,17 +105,18 @@ function tick() {
   const H = canvasRef.value.height / (window.devicePixelRatio||1)
   ctx.clearRect(0,0,W,H)
   for (const p of particles) {
-    p.x += p.vx
-    p.y += p.vy
-    p.rot += p.vr
-    // wind sway
-    p.vx += (Math.sin(p.y*0.02) * 0.01)
+    // flutter and fall
+    const t = (p.y + p.phase) * 0.02
+    p.x += p.vx + Math.sin(t) * (p.sway * 0.01)
+    p.y += p.vy + Math.cos(t * 0.8) * 0.2
+    p.rot += p.vr + Math.sin(t * 0.6) * 0.005
+    // wrap to top when offscreen
     if (p.y > H + 20) {
       // respawn at top while running window
       p.y = -20
       p.x = Math.random() * W
-      p.vx = -0.5 + Math.random() * 1
-      p.vy = 1 + Math.random() * 2.5
+      p.vx = -0.3 + Math.random() * 0.6
+      p.vy = 0.8 + Math.random() * 1.8
     }
     drawParticle(p, ctx)
   }
@@ -272,4 +290,3 @@ function onNo() {
 .c5 { background: linear-gradient(135deg, #38bdf8, #6366f1); }
 .c6 { background: linear-gradient(135deg, #fca5a5, #f97316); }
 </style>
-
