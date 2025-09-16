@@ -33,6 +33,9 @@
             <v-btn color="primary" variant="tonal" to="/parallax/letter6">6. Letter + Strip</v-btn>
             <v-btn color="primary" variant="tonal" to="/parallax/letter7">7. Letter + Columns</v-btn>
             <v-btn color="primary" variant="tonal" to="/parallax/letter8">8. Letter + Panorama</v-btn>
+
+            <v-btn color="primary" variant="tonal" to="/parallax/letter9">9. Long Letter + Filmstrips</v-btn>
+            <v-btn color="primary" variant="tonal" to="/parallax/letter10">10. Long Journey Letter</v-btn>
           </v-card-text>
         </v-card>
       </v-col>
