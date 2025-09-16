@@ -39,13 +39,13 @@ onMounted(() => {
       <div class="viewport">
         <div class="rails" aria-hidden="true">
           <div class="rail r1">
-            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=2000&auto=format&fit=crop" />
+            <div class="shape square c1"></div>
+            <div class="shape circle c2"></div>
+            <div class="shape diamond c3"></div>
           </div>
           <div class="rail r2">
-            <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2000&auto=format&fit=crop" />
+            <div class="shape rect c4"></div>
+            <div class="shape circle c5"></div>
           </div>
         </div>
         <div class="center"><div class="paper">
@@ -60,13 +60,13 @@ onMounted(() => {
       <div class="viewport">
         <div class="rails" aria-hidden="true">
           <div class="rail r2">
-            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1526481280698-8fcc13fd5bf3?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1517511620798-cec17d428bc0?q=80&w=2000&auto=format&fit=crop" />
+            <div class="shape square c6"></div>
+            <div class="shape circle c1"></div>
+            <div class="shape rect c2"></div>
           </div>
           <div class="rail r3">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=2000&auto=format&fit=crop" />
+            <div class="shape diamond c3"></div>
+            <div class="shape square c4"></div>
           </div>
         </div>
         <div class="center"><div class="paper">
@@ -81,12 +81,12 @@ onMounted(() => {
       <div class="viewport">
         <div class="rails" aria-hidden="true">
           <div class="rail r1">
-            <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=2000&auto=format&fit=crop" />
+            <div class="shape circle c5"></div>
+            <div class="shape square c6"></div>
           </div>
           <div class="rail r3">
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=2000&auto=format&fit=crop" />
+            <div class="shape rect c1"></div>
+            <div class="shape diamond c2"></div>
           </div>
         </div>
         <div class="center"><div class="paper">
@@ -101,12 +101,12 @@ onMounted(() => {
       <div class="viewport">
         <div class="rails" aria-hidden="true">
           <div class="rail r2">
-            <img src="https://images.unsplash.com/photo-1517511620798-cec17d428bc0?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2000&auto=format&fit=crop" />
+            <div class="shape square c3"></div>
+            <div class="shape circle c4"></div>
           </div>
           <div class="rail r1">
-            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2000&auto=format&fit=crop" />
+            <div class="shape rect c5"></div>
+            <div class="shape square c6"></div>
           </div>
         </div>
         <div class="center"><div class="paper">
@@ -121,12 +121,12 @@ onMounted(() => {
       <div class="viewport">
         <div class="rails" aria-hidden="true">
           <div class="rail r3">
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=2000&auto=format&fit=crop" />
+            <div class="shape diamond c2"></div>
+            <div class="shape circle c1"></div>
           </div>
           <div class="rail r2">
-            <img src="https://images.unsplash.com/photo-1526481280698-8fcc13fd5bf3?q=80&w=2000&auto=format&fit=crop" />
-            <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=2000&auto=format&fit=crop" />
+            <div class="shape square c4"></div>
+            <div class="shape rect c3"></div>
           </div>
         </div>
         <div class="center"><div class="paper">
@@ -154,12 +154,28 @@ onMounted(() => {
 
 .rails { position: absolute; inset: 0; pointer-events: none; }
 .rail { position: absolute; left: -40vw; right: -40vw; display: flex; gap: 24px; padding: 16px 24px; }
-.rail img { height: 56vh; width: auto; flex: 0 0 auto; border-radius: 12px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.35); filter: brightness(0.95) contrast(1.05); }
+.rail img { display: none; }
+.rail .shape {
+  height: 56vh; width: 56vh; flex: 0 0 auto;
+  border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  filter: brightness(0.98) contrast(1.05) saturate(1.05);
+}
+.rail .shape.rect { width: 84vh; }
+.rail .shape.circle { border-radius: 50%; }
+.rail .shape.diamond { transform: rotate(45deg) scale(0.85); border-radius: 8px; }
+
+/* color palettes for shapes */
+.c1 { background: linear-gradient(135deg, #a78bfa, #60a5fa); }
+.c2 { background: linear-gradient(135deg, #34d399, #22d3ee); }
+.c3 { background: linear-gradient(135deg, #f472b6, #fb7185); }
+.c4 { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+.c5 { background: linear-gradient(135deg, #38bdf8, #6366f1); }
+.c6 { background: linear-gradient(135deg, #fca5a5, #f97316); }
 
 /* three horizontal rails moving at different speeds/directions */
-.r1 { top: 10vh; transform: translate3d(calc(var(--p) * -120%), 0, 0); }
-.r2 { top: 40vh; transform: translate3d(calc(var(--p) * 80%), 0, 0); }
-.r3 { bottom: 6vh; transform: translate3d(calc(var(--p) * -50%), 0, 0); }
+.r1 { top: 10vh; transform: translate3d(calc(var(--p) * -40%), 0, 0); }
+.r2 { top: 40vh; transform: translate3d(calc(var(--p) * 25%), 0, 0); }
+.r3 { bottom: 6vh; transform: translate3d(calc(var(--p) * -12%), 0, 0); }
 
 .center { position: relative; display: grid; place-items: center; height: 100vh; }
 .paper {
